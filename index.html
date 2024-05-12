@@ -11,7 +11,13 @@
 </head>
 <body>
     <div id="root"></div>
-
+<audio controls style=" display:none;" loop   id="music"  >
+      <source  src="song.mp3">
+      <script>
+        window.addEventListener("click",play);
+        function play() { document.getElementById("music").play();
+        }
+      </script> 
     <script type="text/babel">
 
         const content = [
@@ -101,6 +107,11 @@
             document.getElementById('root')
         );
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script>
+          swal("Happy Mother's Day Mom!!", "Love you the most, hope this website makes happy cause you look more beautiful when you smile!");
+          
+      </script>
 
 </body>
 </html>
