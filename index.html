@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const content = [
+            {
+                image: true, 
+                src: "images/one.png"
+            },
+            {
+                image: false, 
+                content: `
+                    Thank you for all you have done for me since I was a kid!! Love you so much!!
+                `
+            },
+            {
+                image: true, 
+                src: "images/two.png"
+            },
+            {
+                image: false, 
+                content: `
+                Mother, your love is the thread that weaves the fabric of our family's story. With each stitch, you've crafted a tapestry of warmth, resilience, and boundless affection. Today, I offer my deepest gratitude for the masterpiece that is your love.
+                `
+            },
+            {
+                image: true, 
+                src: "images/three.png"
+            },
+            {
+                image: false, 
+                content: `
+                Behind every smile of mine, there's a story you've written with your unconditional love. Happy Mother's Day to the architect of my happiness.
+                `
+            },
+        ]
+
+        function Header({ text }) {
+            return (<h2>{ text }</h2>)
+        }
+
+        function Card({ item }) {
+            return (
+                <div className="card">
+                    {item.image ? <img src={item.src} className="visible"/> : <p className="visible">{item.content}</p>}    
+                </div>
+            )
+        }
+
+        function NavigationButton({text, align, onPress}) {
+            const className = align === 'left' ? 'button left' : 'button right';
+
+            return (
+                <div className={className} onClick={onPress}>{ text }</div>
+            )
+        }
+
+        function App() {
+            const [index, setIndex] = React.useState(1);
+
+            function handleIndexIncrement() {
+                if (index == (content.length-1)) {
+                    setIndex(0)
+                } else {
+                    setIndex(index + 1)
+                }
+            }
+
+            function handleIndexDecrement() {
+                if (index == 0) {
+                    setIndex(content.length - 1)
+                } else {
+                    setIndex(index - 1)
+                }
+            }
+
+            return (
+                <div>
+                    <Header text={"Happy Mother's Day"}/>
+                    <Card item={ content[index] }/>
+                    <NavigationButton text={"Previous"} align={"left"}  onPress={handleIndexDecrement}/>
+                    <NavigationButton text={"Next"}     align={"right"} onPress={handleIndexIncrement}/>
+                </div>
+            )
+        }
+
+        ReactDOM.render(
+            <App />, 
+            document.getElementById('root')
+        );
+    </script>
+
+</body>
+</html>

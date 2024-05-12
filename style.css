@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Pacifico&display=swap');
+
+* {
+    padding: 0;
+    margin:  0;
+    font-family: "Briem Hand", cursive;
+    font-weight: bold;  
+}
+
+h2 {
+    font-family: "Pacifico", cursive;
+    position: absolute;
+    top: 0px;
+    color: white;
+    text-shadow: 2px 3px 2px #940226;
+    left: 10px;
+    font-size: 25px;
+    transform: translateX(0);
+    animation: title 1s;
+}
+
+@keyframes title {
+    from {
+        transform: translateX(-100vh);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+#root {
+    height: 100vh;
+    width:  100vw;
+    background-image: linear-gradient(#ff1664, #db0b3f, #970335,#6e042e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 70%;
+    display: inline-block;
+    border-radius: 100%;
+    border: 5px solid rgb(252, 6, 88);
+}
+
+p {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: justify;
+    width: 70%;
+    border: 5px dashed rgb(255, 5, 242);
+}
+
+.button {
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    color: white;
+    border: 2px dashed white;
+    padding: 10px;
+    width: 30%;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.button:active {
+    background-color: white;
+    color: #800020;
+    border: 2px solid white;
+    padding: 10px;
+    width: 30%;
+    border-radius: 10px;
+}
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
+
+.visible {
+    filter: opacity(100%);
+    animation: glow 3s;
+}
+
+@keyframes glow {
+    from { filter: opacity(0%); }
+    to   { filter: opacity(100%);}
+}
